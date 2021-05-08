@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
+import { TOTAL } from '@dc/ui';
 
 @Component({
-  selector: 'dcarpi-root',
+  selector: 'dc-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'restaurant';
+  total = TOTAL;
 
   constructor() {
     const greet: string[] = ['Hola', 'Mundo', 'adios'];

@@ -1,3 +1,3 @@
 module.exports = {
-  projects: ['<rootDir>/apps/restaurant'],
+  projects: ['<rootDir>/apps/restaurant', '<rootDir>/libs/dc-ui'],
 };
