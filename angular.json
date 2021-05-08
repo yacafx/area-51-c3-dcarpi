@@ -172,6 +172,31 @@
           }
         }
       }
+    },
+    "order": {
+      "projectType": "library",
+      "root": "libs/order",
+      "sourceRoot": "libs/order/src",
+      "prefix": "dc",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/order/src/**/*.ts",
+              "libs/order/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/order"],
+          "options": {
+            "jestConfig": "libs/order/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
