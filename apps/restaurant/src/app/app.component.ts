@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'restaurant';
+
+  constructor() {
+    const greet: string[] = ['Hola', 'Mundo', 'adios'];
+
+    this.title = `${greet[0]} ${greet[1]}!`; //?
+  }
+
+  greet(name: string): string {
+    return `Hola ${name}!`;
+  }
 }
