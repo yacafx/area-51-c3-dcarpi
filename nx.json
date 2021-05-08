@@ -4,7 +4,7 @@
     ".eslintrc.json": "*"
   },
   "affected": { "defaultBase": "master" },
-  "npmScope": "dcarpi",
+  "npmScope": "dc",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
