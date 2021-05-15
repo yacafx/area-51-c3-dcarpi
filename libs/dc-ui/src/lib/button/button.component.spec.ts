@@ -21,15 +21,15 @@ describe('ButtonComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should get a composed label', () => {
-    // Arrange
-    const name = 'Sergio';
-    const expectedResult = 'Hola Sergio';
+  // it('should get a composed label', () => {
+  //   // Arrange
+  //   const name = 'Sergio';
+  //   const expectedResult = 'Hola Sergio';
 
-    // Act
-    const result = component.getLabel(name);
+  //   // Act
+  //   const result = component.getLabel(name);
 
-    // Assert
-    expect(result).toBe(expectedResult);
-  });
+  //   // Assert
+  //   expect(result).toBe(expectedResult);
+  // });
 });

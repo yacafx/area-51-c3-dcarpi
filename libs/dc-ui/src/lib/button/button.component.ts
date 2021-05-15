@@ -1,14 +1,17 @@
-import { Component } from '@angular/core';
-
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Styles } from '@dc/models';
 @Component({
   selector: 'dc-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent {
-  getLabel(name: string): string {
-    const label = 'Hola';
+  @Input() text = 'Click me!';
+  @Input() style: Styles = 'default';
 
-    return `${label} ${name}`;
+  @Output() clicked = new EventEmitter<string>();
+
+  notify() {
+    this.clicked.emit('Somebody clicked me!');
   }
 }
