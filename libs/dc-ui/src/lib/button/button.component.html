@@ -1,1 +1,3 @@
-<p (click)="notify()">{{ text }}</p>
+<div class="button" [ngClass]="style" *ngIf="visible">
+  <p (click)="notify()">{{ text }}</p>
+</div>
