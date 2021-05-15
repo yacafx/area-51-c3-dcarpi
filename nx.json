@@ -15,6 +15,7 @@
     "restaurant": { "tags": [] },
     "restaurant-e2e": { "tags": [], "implicitDependencies": ["restaurant"] },
     "dc-ui": { "tags": [] },
-    "order": { "tags": [] }
+    "order": { "tags": [] },
+    "data-models": { "tags": [] }
   }
 }

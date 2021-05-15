@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@dc/ui": ["libs/dc-ui/src/index.ts"],
-      "@dc/order": ["libs/order/src/index.ts"]
+      "@dc/order": ["libs/order/src/index.ts"],
+      "@dc/models": ["libs/data-models/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
