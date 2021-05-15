@@ -1,21 +1,49 @@
 {
   "implicitDependencies": {
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     ".eslintrc.json": "*"
   },
-  "affected": { "defaultBase": "master" },
+  "affected": {
+    "defaultBase": "master"
+  },
   "npmScope": "dc",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e",
+          "build-storybook"
+        ]
+      }
     }
   },
   "projects": {
-    "restaurant": { "tags": [] },
-    "restaurant-e2e": { "tags": [], "implicitDependencies": ["restaurant"] },
-    "dc-ui": { "tags": [] },
-    "order": { "tags": [] },
-    "data-models": { "tags": [] }
+    "restaurant": {
+      "tags": []
+    },
+    "restaurant-e2e": {
+      "tags": [],
+      "implicitDependencies": ["restaurant"]
+    },
+    "dc-ui": {
+      "tags": []
+    },
+    "order": {
+      "tags": []
+    },
+    "data-models": {
+      "tags": []
+    },
+    "dc-ui-e2e": {
+      "tags": [],
+      "implicitDependencies": ["dc-ui"]
+    }
   }
 }
