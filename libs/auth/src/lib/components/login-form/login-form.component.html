@@ -1,5 +1,19 @@
-<input #username placeholder="username" type="text" />
-<input #password placeholder="password" type="password" />
-<button (click)="login({ username: username.value, password: password.value })">
-  Acceder
-</button>
+<mat-card>
+  <mat-card-title>Acceso</mat-card-title>
+  <mat-card-content>
+    <form fxLayout="column" fxLayoutAlign="center none">
+      <mat-form-field>
+        <input matInput #username placeholder="username" type="text" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput #password placeholder="password" type="password" />
+      </mat-form-field>
+    </form>
+    <button
+      mat-raised-button
+      (click)="login({ username: username.value, password: password.value })"
+    >
+      Acceder
+    </button>
+  </mat-card-content>
+</mat-card>
