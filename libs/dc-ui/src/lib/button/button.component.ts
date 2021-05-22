@@ -10,12 +10,11 @@ export class ButtonComponent {
   @Input() style: Styles = 'danger';
   @Input() visible = true;
 
-  @Output() clicked = new EventEmitter<User>();
+  @Output() clicked = new EventEmitter<Partial<User>>();
 
   notify() {
-    const user: User = {
-      name: 'sergio',
-      skills: ['code', 'bike', 'football']
+    const user: Partial<User> = {
+      username: 'sergio'
     };
 
     this.visible = false;
