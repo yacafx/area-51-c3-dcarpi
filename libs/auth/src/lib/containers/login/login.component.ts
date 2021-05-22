@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Authenticate } from '@dc/models';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'dc-login',
@@ -8,11 +9,11 @@ import { Authenticate } from '@dc/models';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit {
-  constructor() {}
+  constructor(private auth: AuthService) {}
 
   ngOnInit(): void {}
 
   login(auth: Authenticate): void {
-    console.log(auth);
+    this.auth.login(auth).subscribe();
   }
 }
