@@ -3,6 +3,7 @@ module.exports = {
     '<rootDir>/apps/restaurant',
     '<rootDir>/libs/dc-ui',
     '<rootDir>/libs/order',
-    '<rootDir>/libs/data-models'
+    '<rootDir>/libs/data-models',
+    '<rootDir>/libs/auth'
   ]
 };

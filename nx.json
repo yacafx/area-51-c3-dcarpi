@@ -1,14 +1,9 @@
 {
   "implicitDependencies": {
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     ".eslintrc.json": "*"
   },
-  "affected": {
-    "defaultBase": "master"
-  },
+  "affected": { "defaultBase": "master" },
   "npmScope": "dc",
   "tasksRunnerOptions": {
     "default": {
@@ -25,25 +20,12 @@
     }
   },
   "projects": {
-    "restaurant": {
-      "tags": []
-    },
-    "restaurant-e2e": {
-      "tags": [],
-      "implicitDependencies": ["restaurant"]
-    },
-    "dc-ui": {
-      "tags": []
-    },
-    "order": {
-      "tags": []
-    },
-    "data-models": {
-      "tags": []
-    },
-    "dc-ui-e2e": {
-      "tags": [],
-      "implicitDependencies": ["dc-ui"]
-    }
+    "restaurant": { "tags": [] },
+    "restaurant-e2e": { "tags": [], "implicitDependencies": ["restaurant"] },
+    "dc-ui": { "tags": [] },
+    "order": { "tags": [] },
+    "data-models": { "tags": [] },
+    "dc-ui-e2e": { "tags": [], "implicitDependencies": ["dc-ui"] },
+    "auth": { "tags": [] }
   }
 }
