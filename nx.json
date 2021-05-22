@@ -26,6 +26,7 @@
     "order": { "tags": [] },
     "data-models": { "tags": [] },
     "dc-ui-e2e": { "tags": [], "implicitDependencies": ["dc-ui"] },
-    "auth": { "tags": [] }
+    "auth": { "tags": [] },
+    "mocks": { "tags": [] }
   }
 }
