@@ -28,17 +28,22 @@
     {
       "id": 1,
       "userId": 1,
-      "job": "Plumber"
+      "job": "developer"
     },
     {
       "id": 2,
       "userId": 2,
-      "job": "developer"
+      "job": "Chef"
     },
     {
       "id": 3,
       "userId": 3,
       "job": "Manager"
+    },
+    {
+      "id": 4,
+      "userId": 4,
+      "job": "Waiter"
     }
   ],
   "products": [
@@ -71,6 +76,16 @@
       "id": 6,
       "name": "Paint",
       "category": "paint"
+    },
+    {
+      "name": "Stickers",
+      "category": "merchandise",
+      "id": 8
+    },
+    {
+      "name": "Polos",
+      "category": "merchandise",
+      "id": 9
     }
   ],
   "dishes": [
