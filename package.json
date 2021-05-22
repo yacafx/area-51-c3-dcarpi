@@ -26,7 +26,8 @@
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "server": "ts-node ./server/server.ts"
   },
   "private": true,
   "dependencies": {
