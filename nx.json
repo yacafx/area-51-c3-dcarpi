@@ -28,6 +28,7 @@
     "dc-ui-e2e": { "tags": [], "implicitDependencies": ["dc-ui"] },
     "auth": { "tags": [] },
     "mocks": { "tags": [] },
-    "material": { "tags": [] }
+    "material": { "tags": [] },
+    "layout": { "tags": [] }
   }
 }

@@ -49,6 +49,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1102.0",
+    "@angular-devkit/core": "~11.2.0",
     "@angular-eslint/eslint-plugin": "~4.2.0",
     "@angular-eslint/eslint-plugin-template": "~4.2.0",
     "@angular-eslint/template-parser": "~4.2.0",

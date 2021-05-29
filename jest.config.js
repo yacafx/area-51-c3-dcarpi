@@ -6,6 +6,7 @@ module.exports = {
     '<rootDir>/libs/data-models',
     '<rootDir>/libs/auth',
     '<rootDir>/libs/mocks',
-    '<rootDir>/libs/material'
+    '<rootDir>/libs/material',
+    '<rootDir>/libs/layout'
   ]
 };
