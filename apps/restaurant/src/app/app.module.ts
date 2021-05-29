@@ -6,7 +6,14 @@ import { AuthModule, authRoutes } from '@dc/auth';
 import { LayoutModule } from '@dc/layout';
 import { AppComponent } from './app.component';
 
-const routes: Route[] = [{ path: 'auth', children: authRoutes }];
+const routes: Route[] = [
+  { path: 'auth', children: authRoutes },
+  {
+    path: 'dishes',
+    loadChildren: () =>
+      import('@dc/dishes').then((module) => module.DishesModule)
+  }
+];
 
 @NgModule({
   declarations: [AppComponent],

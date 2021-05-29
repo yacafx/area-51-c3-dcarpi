@@ -7,6 +7,7 @@ module.exports = {
     '<rootDir>/libs/auth',
     '<rootDir>/libs/mocks',
     '<rootDir>/libs/material',
-    '<rootDir>/libs/layout'
+    '<rootDir>/libs/layout',
+    '<rootDir>/libs/dishes'
   ]
 };

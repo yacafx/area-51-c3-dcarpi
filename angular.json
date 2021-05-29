@@ -371,6 +371,31 @@
           }
         }
       }
+    },
+    "dishes": {
+      "projectType": "library",
+      "root": "libs/dishes",
+      "sourceRoot": "libs/dishes/src",
+      "prefix": "dc",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/dishes/src/**/*.ts",
+              "libs/dishes/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/dishes"],
+          "options": {
+            "jestConfig": "libs/dishes/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

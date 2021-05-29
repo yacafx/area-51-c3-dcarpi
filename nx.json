@@ -29,6 +29,7 @@
     "auth": { "tags": [] },
     "mocks": { "tags": [] },
     "material": { "tags": [] },
-    "layout": { "tags": [] }
+    "layout": { "tags": [] },
+    "dishes": { "tags": [] }
   }
 }
