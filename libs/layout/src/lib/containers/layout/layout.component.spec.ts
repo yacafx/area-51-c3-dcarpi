@@ -1,5 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
+import { MaterialModule } from '@dc/material';
 import { LayoutComponent } from './layout.component';
 
 describe('LayoutComponent', () => {
@@ -8,9 +10,9 @@ describe('LayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LayoutComponent ]
-    })
-    .compileComponents();
+      declarations: [LayoutComponent],
+      imports: [HttpClientModule, RouterTestingModule, MaterialModule]
+    }).compileComponents();
   });
 
   beforeEach(() => {
