@@ -7,6 +7,7 @@ import { LayoutModule } from '@dc/layout';
 import { AppComponent } from './app.component';
 
 const routes: Route[] = [
+  { path: '', pathMatch: 'full', redirectTo: 'dishes' },
   { path: 'auth', children: authRoutes },
   {
     path: 'dishes',
