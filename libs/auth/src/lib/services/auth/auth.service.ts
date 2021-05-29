@@ -1,22 +1,34 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Authenticate, User } from '@dc/models';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private url = 'http://localhost:3000';
-  private userSubject$ = new BehaviorSubject<User>({} as User);
+  private userSubject$ = new BehaviorSubject<User | null>(null);
   user$ = this.userSubject$.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private route: Router) {}
 
   login(auth: Authenticate): Observable<User> {
-    return this.http
-      .post<User>(`${this.url}/login`, auth)
-      .pipe(tap((user) => this.userSubject$.next(user)));
+    return this.http.post<User>(`${this.url}/login`, auth).pipe(
+      tap((user: User) => {
+        if (user.token) {
+          this.userSubject$.next(user);
+        } else {
+          this.userSubject$.next(null);
+        }
+      })
+    );
+  }
+
+  logout(): void {
+    console.log('bye');
+    this.userSubject$.next(null);
+    this.route.navigate(['/']);
   }
 }

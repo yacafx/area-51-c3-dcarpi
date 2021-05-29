@@ -1,5 +1,37 @@
-<mat-toolbar>
+<mat-toolbar color="primary" fxLayout="row">
   <span>Clientes</span>
+  <div class="right-nav">
+    <span *ngIf="auth.user$ | async as user">
+      <button mat-button>
+        {{ user.username }}
+      </button>
+      <button
+        mat-button
+        [routerLink]="['/products']"
+        routerLinkActive="router-link-active"
+      >
+        Productos
+      </button>
+
+      <button
+        mat-button
+        [routerLink]="['/dishes']"
+        routerLinkActive="router-link-active"
+      >
+        Platillos
+      </button>
+
+      <button mat-button (click)="auth.logout()">Salir</button>
+    </span>
+    <span *ngIf="!(auth.user$ | async)">
+      <span
+        mat-button
+        [routerLink]="['auth/login']"
+        routerLinkActive="router-link-active"
+      >
+        Acceso
+      </span>
+    </span>
+  </div>
 </mat-toolbar>
-{{ authService.user$ | async | json }}
 <ng-content></ng-content>

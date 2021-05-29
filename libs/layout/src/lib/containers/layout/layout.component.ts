@@ -7,5 +7,5 @@ import { AuthService } from '@dc/auth';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent {
-  constructor(public authService: AuthService) {}
+  constructor(public auth: AuthService) {}
 }
