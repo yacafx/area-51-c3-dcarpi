@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Route, RouterModule } from '@angular/router';
-import { AuthModule, authRoutes } from '@dc/auth';
+import { AuthGuard, AuthModule, authRoutes } from '@dc/auth';
 import { LayoutModule } from '@dc/layout';
 import { AppComponent } from './app.component';
 
@@ -12,7 +12,8 @@ const routes: Route[] = [
   {
     path: 'dishes',
     loadChildren: () =>
-      import('@dc/dishes').then((module) => module.DishesModule)
+      import('@dc/dishes').then((module) => module.DishesModule),
+    canActivate: [AuthGuard]
   }
 ];
 
