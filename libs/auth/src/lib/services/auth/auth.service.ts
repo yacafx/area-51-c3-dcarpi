@@ -12,13 +12,20 @@ export class AuthService {
   private userSubject$ = new BehaviorSubject<User | null>(null);
   user$ = this.userSubject$.asObservable();
 
-  constructor(private http: HttpClient, private route: Router) {}
+  constructor(private http: HttpClient, private route: Router) {
+    const user = localStorage.getItem('user');
+    if (user) {
+      this.userSubject$.next(JSON.parse(user));
+    }
+  }
 
   login(auth: Authenticate): Observable<User> {
     return this.http.post<User>(`${this.url}/login`, auth).pipe(
       tap((user: User) => {
         if (user.token) {
           this.userSubject$.next(user);
+          localStorage.setItem('user', JSON.stringify(user));
+          localStorage.setItem('token', user.token);
         } else {
           this.userSubject$.next(null);
         }
@@ -27,7 +34,8 @@ export class AuthService {
   }
 
   logout(): void {
-    console.log('bye');
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
     this.userSubject$.next(null);
     this.route.navigate(['/']);
   }
