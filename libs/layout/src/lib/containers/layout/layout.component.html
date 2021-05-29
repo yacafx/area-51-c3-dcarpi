@@ -6,6 +6,7 @@
         {{ user.username }}
       </button>
       <button
+        *ngIf="user.role === 'admin'"
         mat-button
         [routerLink]="['/products']"
         routerLinkActive="router-link-active"
