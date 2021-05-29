@@ -1,6 +1,5 @@
 <mat-toolbar>
   <span>Clientes</span>
 </mat-toolbar>
-{{ authService.user$ | async }}
+{{ authService.user$ | async | json }}
 <ng-content></ng-content>
-n
