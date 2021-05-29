@@ -15,20 +15,20 @@ import { AuthService } from '../../services/auth/auth.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  subscription: Subscription[] = [];
+  subscription: Subscription = new Subscription();
 
   constructor(private auth: AuthService) {}
 
   ngOnInit(): void {}
 
   login(auth: Authenticate): void {
-    this.subscription.push(this.auth.login(auth).subscribe());
-    this.subscription.push(this.auth.login(auth).subscribe());
-    this.subscription.push(this.auth.login(auth).subscribe());
-    this.subscription.push(this.auth.login(auth).subscribe());
+    this.subscription.add(this.auth.login(auth).subscribe());
+    this.subscription.add(this.auth.login(auth).subscribe());
+    this.subscription.add(this.auth.login(auth).subscribe());
+    this.subscription.add(this.auth.login(auth).subscribe());
   }
 
   ngOnDestroy(): void {
-    this.subscription.forEach((subscription) => subscription.unsubscribe());
+    this.subscription.unsubscribe();
   }
 }
