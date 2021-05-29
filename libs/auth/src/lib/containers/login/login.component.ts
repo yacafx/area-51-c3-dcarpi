@@ -1,11 +1,7 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnDestroy,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { Authenticate } from '@dc/models';
-import { Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
@@ -14,21 +10,17 @@ import { AuthService } from '../../services/auth/auth.service';
   styleUrls: ['./login.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LoginComponent implements OnInit, OnDestroy {
-  subscription: Subscription = new Subscription();
+export class LoginComponent implements OnDestroy {
+  private unsubscribe$: Subject<void> = new Subject();
 
   constructor(private auth: AuthService) {}
 
-  ngOnInit(): void {}
-
   login(auth: Authenticate): void {
-    this.subscription.add(this.auth.login(auth).subscribe());
-    this.subscription.add(this.auth.login(auth).subscribe());
-    this.subscription.add(this.auth.login(auth).subscribe());
-    this.subscription.add(this.auth.login(auth).subscribe());
+    this.auth.login(auth).pipe(takeUntil(this.unsubscribe$)).subscribe();
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }
