@@ -1,19 +1,30 @@
 <mat-card>
   <mat-card-title>Acceso</mat-card-title>
   <mat-card-content>
-    <form fxLayout="column" fxLayoutAlign="center none">
+    <form [formGroup]="loginForm" fxLayout="column" fxLayoutAlign="center none">
       <mat-form-field>
-        <input matInput #username placeholder="username" type="text" />
+        <input
+          matInput
+          placeholder="username"
+          type="text"
+          formControlName="username"
+        />
+        <mat-error>
+          <span>Campo requerido</span>
+        </mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput #password placeholder="password" type="password" />
+        <input
+          matInput
+          placeholder="password"
+          type="password"
+          formControlName="password"
+        />
+        <mat-error>
+          <span>Campo requerido</span>
+        </mat-error>
       </mat-form-field>
     </form>
-    <button
-      mat-raised-button
-      (click)="login({ username: username.value, password: password.value })"
-    >
-      Acceder
-    </button>
+    <button mat-raised-button (click)="login()">Acceder</button>
   </mat-card-content>
 </mat-card>
