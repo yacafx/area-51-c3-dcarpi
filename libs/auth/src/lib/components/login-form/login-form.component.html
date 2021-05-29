@@ -25,6 +25,8 @@
         </mat-error>
       </mat-form-field>
     </form>
-    <button mat-raised-button (click)="login()">Acceder</button>
+    <button [disabled]="loginForm.invalid" mat-raised-button (click)="login()">
+      Acceder
+    </button>
   </mat-card-content>
 </mat-card>
