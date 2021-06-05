@@ -19,5 +19,5 @@ export const loginSuccess = createAction(
 
 export const loginFailure = createAction(
   AuthActionTypes.LoginFail,
-  props<{ payload: any }>()
+  props<{ payload: unknown }>()
 );
