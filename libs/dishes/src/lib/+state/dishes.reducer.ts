@@ -1,6 +1,6 @@
-import { createReducer, on, Action } from '@ngrx/store';
-import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-
+import { Dish } from '@dc/models';
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+import { Action, createReducer, on } from '@ngrx/store';
 import * as DishesActions from './dishes.actions';
 import { DishesEntity } from './dishes.models';
 

@@ -1,14 +1,22 @@
-import { createAction, props } from '@ngrx/store';
-import { DishesEntity } from './dishes.models';
+import { Action } from '@ngrx/store';
 
-export const init = createAction('[Dishes Page] Init');
+export enum DishesActionTypes {
+  LoadDishes = '[Dishes Page] Load Dishes',
+  LoadDishesSuccess = '[Dishes API] Load Dishes Success',
+  LoadDishesFail = '[Dishes API] LoadDishes Fail'
+}
 
-export const loadDishesSuccess = createAction(
-  '[Dishes/API] Load Dishes Success',
-  props<{ dishes: DishesEntity[] }>()
-);
+export class LoadDishes implements Action {
+  readonly type = DishesActionTypes.LoadDishes;
+}
+export class LoadDishesSuccess implements Action {
+  readonly type = DishesActionTypes.LoadDishesSuccess;
+  constructor(public payload: unknown) {}
+}
 
-export const loadDishesFailure = createAction(
-  '[Dishes/API] Load Dishes Failure',
-  props<{ error: any }>()
-);
+export class LoadDishesFail implements Action {
+  readonly type = DishesActionTypes.LoadDishesFail;
+  constructor(public payload: unknown) {}
+}
+
+export type DishesActions = LoadDishes | LoadDishesSuccess | LoadDishesFail;
