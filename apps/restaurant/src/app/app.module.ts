@@ -5,6 +5,11 @@ import { Route, RouterModule } from '@angular/router';
 import { AuthGuard, AuthModule, authRoutes } from '@dc/auth';
 import { LayoutModule } from '@dc/layout';
 import { AppComponent } from './app.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 const routes: Route[] = [
   { path: '', pathMatch: 'full', redirectTo: 'dishes' },
@@ -24,7 +29,20 @@ const routes: Route[] = [
     BrowserAnimationsModule,
     RouterModule.forRoot(routes, { initialNavigation: 'enabled' }),
     AuthModule,
-    LayoutModule
+    LayoutModule,
+    StoreModule.forRoot(
+      {},
+      {
+        metaReducers: !environment.production ? [] : [],
+        runtimeChecks: {
+          strictActionImmutability: true,
+          strictStateImmutability: true
+        }
+      }
+    ),
+    EffectsModule.forRoot([]),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    StoreRouterConnectingModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
