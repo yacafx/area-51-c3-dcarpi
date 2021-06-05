@@ -21,6 +21,18 @@ describe('ButtonComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should notify the click', () => {
+    /** THIS IS A BAD TEST DO NOT DO IT LKE THIS!!!! **/
+    // const spy = jest.spyOn(component, 'notify');
+    // component.notify();
+    // expect(spy).toBeCalled();
+
+    /** THIS IS A GOOD TEST, DO IT LKE THIS!!!! 😀😀😀 **/
+    const spy = jest.spyOn(component.clicked, 'emit');
+    component.notify();
+    expect(spy).toBeCalled();
+    expect(component.visible).toBeFalsy();
+  });
   // it('should get a composed label', () => {
   //   // Arrange
   //   const name = 'Sergio';
