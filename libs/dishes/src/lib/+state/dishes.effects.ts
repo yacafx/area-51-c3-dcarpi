@@ -1,28 +1,34 @@
 import { Injectable } from '@angular/core';
-import { createEffect, Actions, ofType } from '@ngrx/effects';
+import { Dish } from '@dc/models';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { fetch } from '@nrwl/angular';
-
-import * as DishesFeature from './dishes.reducer';
+import { of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { DishesService } from '../services/dishes.service';
 import * as DishesActions from './dishes.actions';
-
+import { DishesActionTypes } from './dishes.actions';
 @Injectable()
 export class DishesEffects {
   init$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(DishesActions.init),
+      ofType(DishesActionTypes.LoadDishes),
       fetch({
         run: (action) => {
-          // Your custom service 'load' logic goes here. For now just return a success action...
-          return DishesActions.loadDishesSuccess({ dishes: [] });
+          this.service.getDishes().pipe(
+            map((dishes: Dish[]) =>
+              DishesActions.loadDishesSuccess({ payload: dishes })
+            ),
+            catchError(() => of(DishesActions.loadDishesFail))
+          );
         },
 
         onError: (action, error) => {
           console.error('Error', error);
-          return DishesActions.loadDishesFailure({ error });
+          return DishesActions.loadDishesFail({ payload: error });
         }
       })
     )
   );
 
-  constructor(private actions$: Actions) {}
+  constructor(private actions$: Actions, private service: DishesService) {}
 }
