@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { AuthService } from '@dc/auth';
+import { AuthService, productsQuery } from '@dc/auth';
+import { State, User } from '@dc/models';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'dc-layout',
@@ -7,5 +10,9 @@ import { AuthService } from '@dc/auth';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent {
-  constructor(public auth: AuthService) {}
+  user$: Observable<User>;
+
+  constructor(private store: Store<State>, public auth: AuthService) {
+    this.user$ = this.store.select(productsQuery.getUser);
+  }
 }

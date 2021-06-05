@@ -1,7 +1,7 @@
 <mat-toolbar color="primary" fxLayout="row">
   <span>Clientes</span>
   <div class="right-nav">
-    <span *ngIf="auth.user$ | async as user">
+    <span *ngIf="user$ | async as user">
       <button mat-button>
         {{ user.username }}
       </button>
@@ -24,7 +24,7 @@
 
       <button mat-button (click)="auth.logout()">Salir</button>
     </span>
-    <span *ngIf="!(auth.user$ | async)">
+    <span *ngIf="!(user$ | async)">
       <span
         mat-button
         [routerLink]="['auth/login']"
